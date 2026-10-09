@@ -4,6 +4,7 @@ import com.example.m2pokemonmanagement20261008.dto.DresseurDto;
 import com.example.m2pokemonmanagement20261008.dto.PokemonDto;
 import com.example.m2pokemonmanagement20261008.entities.DresseurEntity;
 import com.example.m2pokemonmanagement20261008.entities.PokemonEntity;
+import com.example.m2pokemonmanagement20261008.enums.PokemonTypeEnum;
 import com.example.m2pokemonmanagement20261008.repositories.DresseurRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -49,8 +50,7 @@ public class DresseurService implements IDresseurService {
         long distinctTypesCount = pokemons.stream()
                 .map(PokemonEntity::getType)
                 .filter(Objects::nonNull)
-                .map(String::trim)
-                .map(String::toLowerCase)
+                .map(PokemonTypeEnum::name)
                 .distinct()
                 .count();
 
@@ -79,7 +79,7 @@ public class DresseurService implements IDresseurService {
                     PokemonDto pDto = new PokemonDto();
                     pDto.setId(p.getId());
                     pDto.setNom(p.getNom());
-                    pDto.setType(p.getType());
+                    pDto.setType(p.getType().getLabel());
                     pDto.setNiveau(p.getNiveau());
                     return pDto;
                 })

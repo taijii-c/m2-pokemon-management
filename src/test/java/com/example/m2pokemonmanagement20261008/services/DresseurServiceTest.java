@@ -3,6 +3,7 @@ package com.example.m2pokemonmanagement20261008.services;
 import com.example.m2pokemonmanagement20261008.dto.DresseurDto;
 import com.example.m2pokemonmanagement20261008.entities.DresseurEntity;
 import com.example.m2pokemonmanagement20261008.entities.PokemonEntity;
+import com.example.m2pokemonmanagement20261008.enums.PokemonTypeEnum;
 import com.example.m2pokemonmanagement20261008.repositories.DresseurRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,7 +27,7 @@ class DresseurServiceTest {
     @InjectMocks
     private DresseurService dresseurService;
 
-    private PokemonEntity createPokemon(Long id, String nom, String type, int niveau) {
+    private PokemonEntity createPokemon(Long id, String nom, PokemonTypeEnum type, int niveau) {
         PokemonEntity pokemon = new PokemonEntity();
         pokemon.setId(id);
         pokemon.setNom(nom);
@@ -63,8 +64,8 @@ class DresseurServiceTest {
         // Arrange
         Long dresseurId = 2L;
         List<PokemonEntity> pokemons = List.of(
-                createPokemon(1L, "Staross", "Eau", 25),
-                createPokemon(2L, "Psykokwak", "Eau", 15)
+                createPokemon(1L, "Staross", PokemonTypeEnum.EAU, 25),
+                createPokemon(2L, "Psykokwak", PokemonTypeEnum.EAU, 15)
         );
         DresseurEntity dresseur = createDresseur(dresseurId, "Ondine", "Azuria", pokemons);
         when(dresseurRepository.findById(dresseurId)).thenReturn(Optional.of(dresseur));
@@ -82,9 +83,9 @@ class DresseurServiceTest {
         // Arrange
         Long dresseurId = 3L;
         List<PokemonEntity> pokemons = List.of(
-                createPokemon(1L, "Salameche", "Feu", 10),
-                createPokemon(2L, "Carapuce", "Eau", 20),
-                createPokemon(3L, "Bulbizarre", "Plante", 30)
+                createPokemon(1L, "Salameche", PokemonTypeEnum.FEU, 10),
+                createPokemon(2L, "Carapuce", PokemonTypeEnum.EAU, 20),
+                createPokemon(3L, "Bulbizarre", PokemonTypeEnum.PLANTE, 30)
         );
         DresseurEntity dresseur = createDresseur(dresseurId, "Régis", "Bourg Palette", pokemons);
         when(dresseurRepository.findById(dresseurId)).thenReturn(Optional.of(dresseur));
@@ -102,8 +103,8 @@ class DresseurServiceTest {
         // Arrange
         Long dresseurId = 4L;
         List<PokemonEntity> pokemons = List.of(
-                createPokemon(1L, "Dracaufeu", "Feu", 50),
-                createPokemon(2L, "Arcanin", "Feu", 60)
+                createPokemon(1L, "Dracaufeu", PokemonTypeEnum.FEU, 50),
+                createPokemon(2L, "Arcanin", PokemonTypeEnum.FEU, 60)
         );
         DresseurEntity dresseur = createDresseur(dresseurId, "Auguste", "Cramois'Île", pokemons);
         when(dresseurRepository.findById(dresseurId)).thenReturn(Optional.of(dresseur));
@@ -121,9 +122,9 @@ class DresseurServiceTest {
         // Arrange
         Long dresseurId = 5L;
         List<PokemonEntity> pokemons = List.of(
-                createPokemon(1L, "Pikachu", "Électrik", 55),
-                createPokemon(2L, "Dracaufeu", "Feu", 50),
-                createPokemon(3L, "Bulbizarre", "Plante", 20)
+                createPokemon(1L, "Pikachu", PokemonTypeEnum.ELECTRIK, 55),
+                createPokemon(2L, "Dracaufeu", PokemonTypeEnum.FEU, 50),
+                createPokemon(3L, "Bulbizarre", PokemonTypeEnum.PLANTE, 20)
         );
         DresseurEntity dresseur = createDresseur(dresseurId, "Sacha Ketchum", "Kanto", pokemons);
         when(dresseurRepository.findById(dresseurId)).thenReturn(Optional.of(dresseur));
@@ -152,7 +153,7 @@ class DresseurServiceTest {
         // Arrange
         Long dresseurId = 1L;
         List<PokemonEntity> pokemons = List.of(
-                createPokemon(1L, "Pikachu", "Électrik", 25)
+                createPokemon(1L, "Pikachu", PokemonTypeEnum.ELECTRIK, 25)
         );
         DresseurEntity dresseur = createDresseur(dresseurId, "Sacha", "Kanto", pokemons);
         when(dresseurRepository.findById(dresseurId)).thenReturn(Optional.of(dresseur));

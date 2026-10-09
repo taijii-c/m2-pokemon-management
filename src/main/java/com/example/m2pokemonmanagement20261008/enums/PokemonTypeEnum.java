@@ -8,21 +8,7 @@ public enum PokemonTypeEnum {
     FEU("Feu"),
     EAU("Eau"),
     PLANTE("Plante"),
-    ELECTRIK("Électrik"),
-    NORMAL("Normal"),
-    GLACE("Glace"),
-    COMBAT("Combat"),
-    POISON("Poison"),
-    SOL("Sol"),
-    VOL("Vol"),
-    PSY("Psy"),
-    INSECTE("Insecte"),
-    ROCHE("Roche"),
-    SPECTRE("Spectre"),
-    DRAGON("Dragon"),
-    ACIER("Acier"),
-    TENEBRES("Ténèbres"),
-    FEE("Fée");
+    ELECTRIK("Électrik");
 
     private final String label;
 

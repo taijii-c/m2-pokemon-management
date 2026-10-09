@@ -1,5 +1,6 @@
 package com.example.m2pokemonmanagement20261008.entities;
 
+import com.example.m2pokemonmanagement20261008.enums.PokemonTypeEnum;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -17,7 +18,8 @@ public class PokemonEntity {
     private String nom;
 
     @Column(name = "type", nullable = false, length = 50)
-    private String type;
+    @Enumerated(EnumType.STRING)
+    private PokemonTypeEnum type;
 
     @Column(name = "niveau", nullable = false)
     private int niveau;
